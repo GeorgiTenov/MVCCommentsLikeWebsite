@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Subject>
+@{
+    ViewData["Title"] = "ShowSubjects";
+}
+    <ul>
+        @foreach (var item in Model)
+        {
+
+
+            <li>Posted By:@item.User.Username</li>
+            @if (item.User.ProfilePicturePath != null)
+            {
+                <li><img src="/Pictures/@item.User.ProfilePicturePath" /></li>
+            }
+            <li>@item.Title</li>
+            <li><a asp-action="Details" asp-controller="Subject" asp-route-id="@item.Id">See Subject</a></li>
+
+        }
+
+    </ul>

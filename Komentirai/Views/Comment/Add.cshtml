@@ -1,0 +1,14 @@
+﻿@model Komentirai.Models.Comment
+@{
+    ViewData["Title"] = "Add";
+}
+
+@using (Html.BeginForm("Add", "Comment", FormMethod.Post))
+{
+    <span>Text</span>
+    @Html.TextAreaFor(m => m.Text)
+    <hr />
+
+    <input type="submit" value="Add" />
+}
+

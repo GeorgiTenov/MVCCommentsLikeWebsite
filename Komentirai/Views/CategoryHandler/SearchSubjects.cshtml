@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Komentirai.Models.Subject>
+
+@{
+    ViewData["Title"] = "SearchSubjects";
+}
+    <link href="~/css/HandleCategoryStyle.css" rel="stylesheet" />
+<h1>SearchSubjects</h1>
+
+@if (Model != null)
+{
+    <div id="container">
+        <ul id="categoriesList">
+            @foreach (var item in Model)
+            {
+                <li>Posted By:@item.User.Username</li>
+                <li>Date of Post:@item.Date</li>
+                if (item.User.ProfilePicturePath != null)
+                {
+                    <li><img src="/Pictures/@item.User.ProfilePicturePath" /></li>
+                }
+                <li>Title:@item.Title</li>
+                <li>Description:@item.Description</li>
+                <li><a asp-action="Details" asp-controller="Subject" asp-route-id="@item.Id">See Subject</a></li>
+            }
+        </ul>
+    </div>
+}
+
+
+@if (Model.Count() <= 0)
+{
+    <h1>No Subjects to show</h1>
+}

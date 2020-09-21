@@ -1,0 +1,39 @@
+﻿@model User
+
+@if (Model != null)
+{
+    @if (Model.IsLogged)
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Subject" asp-action="Add">Add Subject</a>
+        </li>
+
+        <li>
+            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="LogOut">Log Out</a>
+        </li>
+
+        <li>
+            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="ShowSubjects">My Subjects</a>
+        </li>
+    }
+    else if (!Model.IsLogged)
+    {
+        <li>
+            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Log In</a>
+        </li>
+
+        <li>
+            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Register">Register</a>
+        </li>
+    }
+}
+else
+{
+    <li>
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Log In</a>
+    </li>
+
+    <li>
+        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Register">Register</a>
+    </li>
+}

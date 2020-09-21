@@ -1,0 +1,19 @@
+﻿body {
+   
+}
+
+#container{
+   background-color:#808080;
+   border-radius:20px;
+}
+
+#categoriesList{
+   list-style:none;
+   
+}
+
+#categoriesList li{
+   color:black;
+   margin:5px;
+   padding:5px;
+}

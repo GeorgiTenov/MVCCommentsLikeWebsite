@@ -1,0 +1,21 @@
+﻿body {
+}
+#detailsList{
+    list-style:none;
+}
+
+#detailsList li{
+    color:white;
+    margin:10px;
+    padding:10px;
+}
+#model{
+    list-style:none;
+
+}
+
+    #model li {
+        color: white;
+        margin: 10px;
+        padding: 10px;
+    }

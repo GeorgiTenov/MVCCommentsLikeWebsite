@@ -1,0 +1,17 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Login";
+}
+    <link href="~/css/LoginStyle.css" rel="stylesheet" />
+@using (Html.BeginForm("Login", "User", FormMethod.Post))
+{
+    <span id="username">Username</span>
+    @Html.TextBoxFor(m => m.Username)
+    <hr />
+    <span id="password">Password</span>
+    @Html.PasswordFor(m => m.Password);
+    <hr />
+    <input type="submit" value="Log In" id="submit"/>
+
+}
+

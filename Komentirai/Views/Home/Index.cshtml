@@ -1,0 +1,21 @@
+﻿@model Komentirai.Models.Data.Context
+@{
+    ViewData["Title"] = "Home Page";
+}
+    <link href="~/css/HomeStyle.css" rel="stylesheet"  asp-append-version="true"/>
+    
+        <div id="container">
+            <div>
+                <ul class="categoryList">
+                    @foreach (var item in ViewData["names"] as IEnumerable<string>)
+                    {
+
+                        <li class="imgLi">@Html.ActionLink(item, "HandleCategories", "CategoryHandler", new { item }) - @Model.SubjectCount(item) </li>
+
+
+                    }
+                </ul>
+            </div>
+        </div>
+        <script src="~/js/BackgroundImages.js"></script>
+   

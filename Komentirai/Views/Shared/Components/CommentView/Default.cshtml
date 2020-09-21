@@ -1,0 +1,5 @@
+﻿@model User
+@if (Model.IsLogged)
+{
+    <a asp-controller="Comment" asp-action="Add">Add Comment</a>
+}

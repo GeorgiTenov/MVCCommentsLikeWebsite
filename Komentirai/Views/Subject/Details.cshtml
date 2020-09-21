@@ -1,0 +1,41 @@
+﻿@model Komentirai.Models.Subject
+   
+@{
+    ViewData["Title"] = "Details";
+}
+    <link href="~/css/DetailsStyle.css" rel="stylesheet" asp-append-version="true"/>
+<h1>Details</h1>
+
+<div>
+    <h4>Subject</h4>
+    <hr />
+   <ul id="model">
+       <li>Title: @Model.Title</li>
+       <li>Posted by: @Model.User.Username</li>
+       <li>Description: @Model.Description</li>
+       <li>Posted on: @Model.Date</li>
+   </ul>
+</div>
+<div>
+   @await Component.InvokeAsync("CommentView") 
+</div>
+<h2>Comments:</h2>
+<hr />
+<div>
+    <ul id="detailsList">
+        @if (ViewData["Comments"] != null)
+        {
+            @foreach (var item in ViewData["Comments"] as IEnumerable<Comment>)
+            {
+
+                @if (item.User != null)
+                {
+                    <li>From:@item.User.Username</li>
+                }
+                <li>@item.Date</li>
+                <li>@item.Text</li>
+
+            }
+        }
+    </ul>
+    </div>

@@ -1,0 +1,44 @@
+﻿@model Komentirai.Models.User
+@{
+    ViewData["Title"] = "Register";
+}
+<link href="~/css/RegisterStyle.css" rel="stylesheet" asp-append-version="true"/>
+@using (Html.BeginForm("Register", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    <span class="text">Username</span>
+
+    @Html.TextBoxFor(m => m.Username)
+    <p id="requiredUsername" style="display:none; color:red">Username is required</p>
+    <p id="requiredUsernameLength" style="display:none; color:sandybrown"> Username must contain more than 3 characters</p>
+    <hr />
+
+    <span class="text">Password</span>
+    @Html.PasswordFor(m => m.Password);
+    <p id="requiredPassword" style="display:none; color:red">Password is required</p>
+    <p id="requiredPasswordLength" style="display:none; color:sandybrown"> Password must contain more than 3 characters</p>
+    <hr />
+
+    <span class="text">Confirm password</span>
+    <input type="password" name="confirmPassword" id="confirmPassword" />
+    <p id="confirmationMessage" style="display:none; color:red">Password and Confirm Password does not match</p>
+    <hr />
+
+    <span class="text">Email</span>
+    @Html.TextBoxFor(m => m.Email)
+    <p id="requiredEmail" style="display:none; color:red">Email is required</p>
+
+    <hr />
+
+    <span class="text">Profile Picture</span>
+    @Html.TextBoxFor(m => m.ProfilePicture, new { type = "file" })
+    <p id="requiredPicture" style="display:none;color:red">Profile Picture is required</p>
+    <hr />
+
+    <input type="submit" value="Register" id="submit" />
+
+
+}
+<script src="~/js/UserValidation.js" asp-append-version="true"></script>
+<script src="~/js/PasswordConfirmation.js" asp-append-version="true"></script>

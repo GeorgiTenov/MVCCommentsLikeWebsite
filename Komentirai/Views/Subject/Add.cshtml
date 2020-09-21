@@ -1,0 +1,23 @@
+﻿@model Komentirai.Models.Subject
+@{
+    ViewData["Title"] = "Add";
+}
+@using (Html.BeginForm("Add", "Subject", FormMethod.Post))
+{
+    <span>Title</span>
+    @Html.TextBoxFor(m => m.Title)
+    <p id="titleRequired" style="display:none; color:red">Title is required</p>
+    <hr />
+
+    <span>Description</span>
+    @Html.TextBoxFor(m => m.Description)
+    <p id="descriptionRequired" style="display:none; color:red">Description is required</p>
+    <hr />
+
+    <select asp-for="Category" asp-items="@Html.GetEnumSelectList<Komentirai.Models.Enums.Category>()">
+        <option>Select option...</option>
+    </select>
+    <hr />
+    <input type="submit" value="Add Subject" id="submit"/>
+}
+<script src="~/js/SubjectValidation.js"></script>
